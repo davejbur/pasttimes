@@ -28,7 +28,7 @@ In theory, surely it should be no more difficult than the transcription already 
 
 Like many large images (e.g. maps, archive documents), the scans on Matthew Shaw's website are all tiled images cleverly stitched together. So it's not just a case of downloading an image and OCRing it. However, as a first test, I used Windows' Snipping Tool to grab a screenshot:
 
-![SR Sep 1950 Table 37]({{ site.baseurl }}/images/sr_195009_37.png)
+![SR Sep 1950 Table 37](images/sr_195009_37.png)
 
 Next, just to see what would happen, I pointed [tesseract](https://sourceforge.net/projects/tesseract-ocr-alt/files/tesseract-ocr-setup-3.02.02.exe/download) at it.
 
