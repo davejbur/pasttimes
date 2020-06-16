@@ -1,5 +1,7 @@
 # Some thoughts on old timetables
 
+## General
+
 Wouldn't it be great to be able to go back in time and see what journeys could be planned using a timetable from 50-60-70-100 years ago? Surely the technology to do that must be nearly there?
 
 This is a collection of notes regarding what I've found so far.
@@ -61,17 +63,26 @@ Hmmm. At this point, it would seem we are back to typing it all in by hand...
 
 Incidentally, there are a couple of good threads on the issues relating to timetable scanning generally on Rail UK Forums: [Timetable demo for timetableworld.com](https://www.railforums.co.uk/threads/timetable-demo-for-timetableworld-com.204918/) and [timetableworld.com](https://www.railforums.co.uk/threads/timetableworld-com.204425/).
 
-As a next attempt, I therefore went for manual typing in the complete timetable. The first columns look like this:
+## Manual transcription
 
-|Miles|Down          |   |Weekdays|| |   |    |    |    |   |   |   |   |   |   |   |   |   |   |   |
-|----:|:-------------|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-|     |              |   | am| am| am| am|  am|  am|  pm| pm| SO| pm| pm| pm| SX| SO| SX| SO| SX| SO|
+As a next attempt, I therefore went for manual typing in the complete timetable. The first columns (Down service, weekdays) look like this:
+
+|---:|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+|Table 37|HAVANT and HAYLING ISLAND||Weekdays||||| |    |   |   |   |   |   |   |   |   |   |   |   |
+|Miles|Down          |   | am| am| am| am|  am|  am|  pm| pm| SO| pm| pm| pm| SX| SO| SX| SO| SX| SO|
 |    0|Havant        |dep|635|734|820|907|1019|1119|1236|134|220|334|442|533|620|634|720|734|820|834|
 |    1|Langston      |   |638|737|823|910|1022|1122|1239|137|223|337|445|536|623|637|723|737|823|837|
 |  2.5|North Hayling |   |   |741|827|916|1026|1126|1243|141|227|341|449|540|627|641|727|741|827|841|
 |  4.5|Hayling Island|arr|645|747|833|922|1032|1132|1249|147|233|347|455|546|633|647|733|747|833|847|
 
 Note that, for ease of typing, I've turned vulgar fractions into decimals in the *Miles* column, but left the times in 12-hour format. I've inserted leading zeroes in the minutes values where necessary, but not in the hours - again, to be as close to the original yet still easily be typable/interpretable.
+
+The complete timetable thus transcribed can be viewed in [csv](docs/Table_37_Havant_and_Hayling_Island_orig.csv) or [xlsx](Table_37_Havant_and_Hayling_Island_orig.xlsx) format.
+
+## Conversion to script-readable format
+
+The next stage is to turn this into something more readable by a script. In the future, the aim might be to transcribe directly to a script-readable format?
+
 
 ## Summary of issues found so far
 
