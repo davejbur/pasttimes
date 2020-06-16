@@ -77,11 +77,22 @@ As a next attempt, I therefore went for manual typing in the complete timetable.
 
 Note that, for ease of typing, I've turned vulgar fractions into decimals in the *Miles* column, but left the times in 12-hour format. I've inserted leading zeroes in the minutes values where necessary, but not in the hours - again, to be as close to the original yet still easily be typable/interpretable.
 
-The complete timetable thus transcribed can be viewed in [csv format](docs/Table_37_Havant_and_Hayling_Island_orig.csv) or [xlsx format](Table_37_Havant_and_Hayling_Island_orig.xlsx).
+The complete timetable thus transcribed can be viewed in [csv format](docs/Table_37_Havant_and_Hayling_Island_orig.csv) or [Excel xlsx format](Table_37_Havant_and_Hayling_Island_orig.xlsx).
 
 ## Conversion to script-readable format
 
-The next stage is to turn this into something more readable by a script. In the future, the aim might be to transcribe directly to a script-readable format?
+The next stage is to turn this into something potentially more readable by a script. In the future, the aim might be to transcribe directly to a script-readable format?
+
+To do this, I've split the four sections (Down Weekdays/Down Sundays/Up Weekdays/Up Sundays) across four [Excel sheets](docs/Table_37_Havant_and_Hayling_Island_split.xlsx). I've also saved them as individual csv sheets:
+
+- [Down Weekdays](docs/Table_37_Havant_and_Hayling_Island_split_DW.csv)
+- [Down Sundays](docs/Table_37_Havant_and_Hayling_Island_split_DS.csv)
+- [Up Weekdays](docs/Table_37_Havant_and_Hayling_Island_split_UW.csv)
+- [Up Sundays](docs/Table_37_Havant_and_Hayling_Island_split_US.csv)
+
+## Conversion to GTFS
+
+The next stage would be to see how we can get this into something that GTFS would recognise...
 
 
 ## Summary of issues found so far
