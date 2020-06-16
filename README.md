@@ -77,7 +77,7 @@ As a next attempt, I therefore went for manual typing in the complete timetable.
 
 Note that, for ease of typing, I've turned vulgar fractions into decimals in the *Miles* column, but left the times in 12-hour format. I've inserted leading zeroes in the minutes values where necessary, but not in the hours - again, to be as close to the original yet still easily be typable/interpretable.
 
-The complete timetable thus transcribed can be viewed in [csv](docs/Table_37_Havant_and_Hayling_Island_orig.csv) or [xlsx](Table_37_Havant_and_Hayling_Island_orig.xlsx) format.
+The complete timetable thus transcribed can be viewed in [csv format](docs/Table_37_Havant_and_Hayling_Island_orig.csv) or [xlsx format](Table_37_Havant_and_Hayling_Island_orig.xlsx).
 
 ## Conversion to script-readable format
 
