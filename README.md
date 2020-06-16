@@ -59,7 +59,7 @@ Unfortunately, I got a rather uninspiring result:
 
 Hmmm. At this point, it would seem we are back to typing it all in by hand...
 
-Incidentally, there are a couple of good threads on the issues relating to timetable scanning generally [here](https://www.railforums.co.uk/threads/timetable-demo-for-timetableworld-com.204918/) and [here](https://www.railforums.co.uk/threads/timetableworld-com.204425/).
+Incidentally, there are a couple of good threads on the issues relating to timetable scanning generally on Rail UK Forums: [Timetable demo for timetableworld.com](https://www.railforums.co.uk/threads/timetable-demo-for-timetableworld-com.204918/) and [timetableworld.com](https://www.railforums.co.uk/threads/timetableworld-com.204425/).
 
 As a next attempt, I therefore went for manual typing in the complete timetable. The first columns look like this:
 
@@ -83,3 +83,7 @@ Note that, for ease of typing, I've turned vulgar fractions into decimals in the
     1. Times in 12 hour format not 24 hour. Not a huge problem, since we should be able to get it right most of the time - though sometimes the "a.m."/"p.m." heading gets replaced by "SO"/"SX", so we'd need to check the columns either side.
     2. Connection times shown in same font as the main/through trains - so there needs to be some guessing as to which it is. Often it's obvious - but not always.
     3. Lots of vertical text for e.g. train names or other notes.
+4. There are other issues that would still apply with timetables today.
+    1. Following on from the point regarding connections, there would need to be a decision on how to deal with trains shown in more than one table, and how to process them without duplication into a CIF/GTFS version.
+    2. There are still many notes, which would need processing if appropriate. Obviously, it depends on how detailed we want to make the end result. Would we want to include details such as "conveys restaurant car between London and Somewhere on Mondays, Wednesdays and Thursdays between 8th June and 31st July"? or just keep it simple for the time being?
+
