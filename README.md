@@ -67,8 +67,8 @@ Incidentally, there are a couple of good threads on the issues relating to timet
 
 As a next attempt, I therefore went for manual typing in the complete timetable. The first columns (Down service, weekdays) look like this:
 
-|---:|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 |Table 37|HAVANT and HAYLING ISLAND||Weekdays||||| |    |   |   |   |   |   |   |   |   |   |   |   |
+|---:|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 |Miles|Down          |   | am| am| am| am|  am|  am|  pm| pm| SO| pm| pm| pm| SX| SO| SX| SO| SX| SO|
 |    0|Havant        |dep|635|734|820|907|1019|1119|1236|134|220|334|442|533|620|634|720|734|820|834|
 |    1|Langston      |   |638|737|823|910|1022|1122|1239|137|223|337|445|536|623|637|723|737|823|837|
