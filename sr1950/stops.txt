@@ -1,0 +1,5 @@
+stop_id,stop_code,stop_name,stop_lat,stop_lon,location_type
+HAV,HAVANT,Havant,50.85443,-0.98161,1
+LNS,LANGSTN,Langston,50.839208,-0.984513,1
+NHA,NHAYLNG,North Hayling,50.820314,-0.983503,1
+HYI,HAYLNGI,Hayling Island,50.793439,-0.995437,1

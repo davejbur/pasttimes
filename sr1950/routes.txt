@@ -1,0 +1,3 @@
+route_id,route_long_name,route_type
+37A,Havant to Hayling Island,2
+37A,Hayling Island to Havant,2
