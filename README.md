@@ -20,7 +20,13 @@ So, as you do, I started breaking the task down in my head into the various step
 
 Well, that's how my thinking started, then I realised how badly most tables would scan, and that I'd probably end up typing it all in by hand. Well, that would mean really sticking to just one line or table - no way I'd ever have enough time to do more than one (simple) table, let alone a whole book.
 
-At this point I discovered [GTFS](http://gtfs.org/) - I'd never needed to know anything about it before, since my day job isn't about journey planning, it's about matching train passes to the timetable after the event. A GTFS timetable should in theory be easier to create from a CSV/Excel file. So maybe that's step (4) made a little easier. Still, the notes in text at 90 degrees (e.g. information about restaurant cars, train names, etc) would probably confuse things. There's also the not insignificant issue that, in older timetables, it's not immediately obvious whether the time against a station is a stop on this service or a connection from this service. It would usually have required local knowledge or asking the guard. (These days, the accepted practice is to put connections in *italic type*.)
+At this point I discovered [GTFS](http://gtfs.org/) - I'd never needed to know anything about it before, since my day job isn't about journey planning, it's about matching train passes to the timetable after the event. A GTFS timetable should in theory be easier to create from a CSV/Excel file. So maybe that's step (4) made a little easier. Still, the notes in text at 90 degrees (e.g. information about restaurant cars, train names, etc) would probably confuse things.
+
+There's also the not insignificant issue that, in older timetables, it's not immediately obvious whether the time against a station is a stop on this service or a connection from this service. It would usually have required local knowledge or asking the guard. (These days, the accepted practice is to put connections in *italic type*.) Examples of the problem can be found in the [Alton-Southampton Table 71](https://timetableworld.com/book_viewer.php?id=6&section_id=1786):
+
+![SR Sep 1950 Table 71 Down](images/sr_195009_71_down.png)
+
+Here, the Alton-Droxford-Fareham stations are inset, so the assumption is that that's not a through train from Waterloo (and the Fareham-Gosport service is a further connection). However, the Alton-Winchester-Southampton service isn't indented, so one could be forgiven for thinking it's a through service from Waterloo. In fact, it was a shuttle service between Alton & Southampton (Terminus) - probably one of the factors that contributed to the line's demise. It's also only by careful inspection that you spot that the train doesn't go to Southampton Central - that's a connection too (note G is "Southampton Terminus (for Docks)"). The worst case for this is what, on the face of things, looks like the 2.27pm (Weekdays) Waterloo-Alton-Southampton Terminus-Southampton Central train (arr 5.27pm) - in fact, it's the 2.27pm Waterloo-Alton (arr 3.47pm - [Table 76](https://timetableworld.com/book_viewer.php?id=6&section_id=1791)), then the 4.10pm Alton-Southampton Terminus (arr 5.24pm) train as far as Eastleigh (arr 5.05pm), changing there onto the 3.30pm Waterloo-Bournemouth train [Table 45](https://timetableworld.com/book_viewer.php?id=6&section_id=1760). This leaves Eastleigh at 5.16pm and gets to Southampton 5.27pm. Nowhere is it made clear that you need to change at Eastleigh - you only get that by inspecting the other tables. I wonder how many people realised it wasn't a through train - but then changed at Northam instead? Oh, and note that I've not been specific about where the Bournemouth train ended up. It got to Bournemouth Central at 6.26pm - but did it then continue on to Bournemouth West (arr 6.40pm), or was that a very tight 4 minute connection?
 
 I then tried to get my head around the scanning problem - step (2). On a sudden whim I googled old railway timetables - and ended up finding [Timetable World](https://timetableworld.com/)! Here is a huge collection of historical timetables, all scanned and indexed. Thank you very much to Matthew Shaw for the time and dedication he's into that site so far, and to all the contributors.
 
@@ -187,28 +193,98 @@ The route_id appears to be an incremental value (rather than having any inherent
 - stick to the spec and call it the "Havant and Hayling Island" route, regardless of direction of travel.
 - follow RDG practice and have a route defined for each possibility (more complicated at this stage but might be clearer in the long run)
 
-I've decided to go for the latter. I've used the table number as an ID, with suffixes for possible routes. For more complicated tables, this might not suffice. What about trains that are shown across multiple tables?
+For the time being, I've decided to go for the latter, but I might review that. I've used the table number as an ID, with suffixes for possible routes. For more complicated tables, this might not suffice. What about trains that are shown across multiple tables?
 
 ```
 route_id,route_long_name,route_type
-37A,Havant to Hayling Island,2
-37A,Hayling Island to Havant,2
+37D,Havant to Hayling Island,2
+37U,Hayling Island to Havant,2
 ```
+
+### calendar.txt
+
+Here we get to specify the dates of operation. We make up an ID, provide the start & end dates for that ID, and then which days it operates between those dates. In this case, the timetable started on (Monday) 25th September 1950, so that's easy. However, it runs "until further notice" - presumably until the following May/June? (The [LM timetable 1962/3](https://timetableworld.com/book_viewer.php?id=2&section_id=-1) ran from (Monday) 10th September to (Sunday) 16th June.) Certainly the timetable refers to the Sunday service starting on 6th May 1951. So let's go for an end date of (Sunday) 17th June for the sake of argument - noting however that GTFS apparently struggles with a span of more than three months.
+
+This covers all possibilities for the Hayling Island service. However, additional entries will arise when it comes to other services that start/end on different dates in the season, or operate (or don't) on other days of the week.
+```
+service_id,sunday,monday,tuesday,wednesday,thursday,friday,saturday,start_date,end_date
+WDS,0,1,1,1,1,1,1,19500925,19510617
+SX,0,1,1,1,1,1,0,19500925,19510617
+SO,0,0,0,0,0,0,1,19500925,19510617
+SUN,1,0,0,0,0,0,0,19510506,19510617
+```
+
+### calendar_dates.txt
+
+This file is empty at present as there are no odd dates for the Hayling Island service.
 
 ### trips.txt
 
-This one appears to be simply a list of the trips run on this route - effectively an entry for each column in the timetable (at least for the Hayling Island line).
+This one appears to be simply a list of the trips run on this route - effectively an entry for each column in the timetable (at least for the Hayling Island line). I've used the column number as the ID - although they aren't actually given in this table!
 
 ```
+route_id,service_id,trip_id
+37D,WDS,1
+37D,WDS,2
+37D,WDS,3
+37D,WDS,4
+37D,WDS,5
+37D,WDS,6
+37D,WDS,7
+37D,WDS,8
+37D,SO,9
+37D,WDS,10
+37D,WDS,11
+37D,WDS,12
+37D,SX,13
+37D,SO,14
+37D,SX,15
+37D,SO,16
+37D,SX,17
+37D,SO,18
+37D,SUN,19
+37D,SUN,20
+37D,SUN,21
+37D,SUN,22
+37D,SUN,23
+37D,SUN,24
+37D,SUN,25
+37D,SUN,26
+37D,SUN,27
+37U,WDS,1
+37U,WDS,2
+37U,WDS,3
+37U,WDS,4
+37U,WDS,5
+37U,WDS,6
+37U,WDS,7
+37U,SO,8
+37U,SX,9
+37U,SO,10
+37U,WDS,11
+37U,WDS,12
+37U,WDS,13
+37U,WDS,14
+37U,WDS,15
+37U,WDS,16
+37U,SUN,17
+37U,SUN,18
+37U,SUN,19
+37U,SUN,20
+37U,SUN,21
+37U,SUN,22
+37U,SUN,23
+37U,SUN,24
+37U,SUN,25
 ```
 
 ### stop_times.txt
 
-### calendar.txt
+This is the big one! We need to turn the entire transcribed table into a set of services. This is the part that most lends itself to some sort of automation.
 
-### calendar_dates.txt
-
-
+```
+trip_id,arrival_time,departure_time,stop_id,stop_sequence
+```
 
 ## Summary of issues found so far
 
