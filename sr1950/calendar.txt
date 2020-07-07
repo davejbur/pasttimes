@@ -1,0 +1,5 @@
+service_id,sunday,monday,tuesday,wednesday,thursday,friday,saturday,start_date,end_date
+WDS,0,1,1,1,1,1,1,19500925,19510617
+SX,0,1,1,1,1,1,0,19500925,19510617
+SO,0,0,0,0,0,0,1,19500925,19510617
+SUN,1,0,0,0,0,0,0,19510506,19510617
